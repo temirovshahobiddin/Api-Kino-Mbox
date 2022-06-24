@@ -205,14 +205,33 @@ header {
 .header-title {
     color: #f1f1f1;
     position: relative;
-    font-size: 6vw;
+    font-size: 3vw;
     margin: auto;
-    text-align: center;
+    text-align: left;
     -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
     top: 15%;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
+    font-family: var(--weighted-font);
+
+    
+}
+.header-title span{
+    transition: all .4s;
+}
+.header-slide.active{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ 
+    
+}
+.header-slide.active .header-title span{
+    color: #508BFF;
 }
 
 .header-about {
