@@ -8,7 +8,7 @@
     <title>For oks</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/swiper.css" />
-    <link rel="stylesheet" href="scss/main.scss">
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="img/logoes/oks.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/media.css">
@@ -48,41 +48,52 @@
     </nav>
 
     <header class="header" id="header">
+        <div class="header__content">
+            <div class="header__list">
+                <div class="header__menu">
+                    <div class="header__menu-line"></div>
+                </div>
+            </div>
+        </div>
         <div class="header-container">
             <div class="header-slide home active">
                 <img src="img/header/1.png" alt="" class="header__bg">
+                <h3 class="header__num">1</h3>
+
                 <div class="header-title header-title-home"><span>Tarmoq</span>
                     kengashi</div>
-                <div class="header-about header-about-home">
-                    <p>Click here to navigate to the home section of the website</p>
-                </div>
+                <p class="header__txt"></p>
+
+
+
             </div>
             <div class="header-slide about">
                 <img src="img/header/2.jpg" alt="" class="header__bg">
-                <div class="header-title"><span> Hududiy</span>
+                <div class="header-title header__title-about"><span> Hududiy</span>
                     kengash</div>
-                <div class="header-about">
+                <!--   <div class="header-about">
                     <p>Click here to navigate to the About section of the website</p>
-                </div>
+                </div> -->
             </div>
             <div class="header-slide work">
                 <img src="img/header/3.jpg" alt="" class="header__bg">
-                <div class="header-title"><span>Respublika</span>
+
+                <div class="header-title header__title-work"><span>Respublika</span>
                     kengashi</div>
-                <div class="header-about">
+                <!--   <div class="header-about">
                     <p>Listing relevant snippets of work:</p>
                     <ul>
                         <li>First piece of work</li>
                         <li>Second piece of work</li>
                         <li>Third piece of work</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="header-slide contact">
                 <img src="img/header/4.jpg" alt="" class="header__bg">
-                <div class="header-title"><span>Umumiy</span>
+                <div class="header-title header__title-contact"><span>Umumiy</span>
                     kengash</div>
-                <div class="header-about">
+                <!--     <div class="header-about">
                     <p>Use the contact form below</p>
                     <form class="contact-form">
                         <p>Email <input type="text" name="email"></p>
@@ -90,7 +101,7 @@
                         <p><input type="submit" name="email" value="Send Message"></p>
                     </form>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -98,10 +109,44 @@
     <main>
         <section class="news">
             <div class="container">
+                <div class="news__top">
+                    <h3 class="news__title">Yangiliklar</h3>
+                    <a href="#!" class="news__btn btn">Barchasi <i class="fas fa-long-arrow-right"></i></a>
+                </div>
                 <div class="news__content">
-                    <div class="new__top">
-                        <h3 class="new__title">Yangiliklar</h3>
-                        <a href="#!" class="news__btn">Barchasi <i class="fas fa-long-arrow-right"></i></a>
+                    <div class="news__introduce">
+                        <img src="img/news/unsplash_d2zvqp3fpro.png" alt="" class="news__introduce-img">
+                        <h3 class="news__introduce-title">“Ishga marhamat” monomarkazlarida turkiyalik mutaxassislar
+                            faoliyat olib bormoqda</h3>
+                        <p class="news__introduce-data">Mart 01, 2021 </p>
+                    </div>
+                    <div class="news__blocksystem">
+                        <div class="news__block">
+                            <h3 class="news__block-subtitle">O’zbekiston yangiliklari</h3>
+                            <div class="news__block-about">
+                                <h3 class="news__block-title">Bir nafar o‘zbekistonlikka o‘rtacha necha dona naqd pul
+                                    to‘g‘ri keladi? So‘m banknotlarini ishlab chiqarish qanchaga tushyapti?</h3>
+                                <img src="img/news/Rectangle 71.png" alt="" class="news__block-img">
+                            </div>
+
+                            <p class="news__block-data">Mart 01, 2021 </p>
+                        </div>
+                        <div class="news__block">
+                            <h3 class="news__block-subtitle">O’zbekiston yangiliklari</h3>
+                            <div class="news__block-about">
+                                <h3 class="news__block-title">Reforms.uz platformasi orqali mamlakatimizning har bir fuqarosi o‘zini qiziqtiruvchi </h3>
+                                <img src="img/news/Rectangle 71 (1).png" alt="" class="news__block-img">
+                            </div>
+                            <p class="news__block-data">Mart 01, 2021 </p>
+                        </div>
+                        <div class="news__block">
+                            <h3 class="news__block-subtitle">O’zbekiston yangiliklari</h3>
+                            <div class="news__block-about">
+                                <h3 class="news__block-title">Tomsk fojiasiga 2 yil: dahshatli tunning so‘nmagan olovi</h3>
+                                <img src="img/news/Rectangle 71 (2).png" alt="" class="news__block-img">
+                            </div>
+                            <p class="news__block-data">Mart 01, 2021 </p>
+                        </div>
                     </div>
                 </div>
             </div>
