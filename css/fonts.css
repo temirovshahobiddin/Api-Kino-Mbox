@@ -9,7 +9,17 @@
     font-weight: 700;
 }
 @font-face {
+    font-family: "Raleway medium";
+    src: url(../fonts/Raleway-Medium.ttf);
+    font-weight: 500;
+}
+@font-face {
     font-family: "poppins";
     src: url(../fonts/Poppins-Medium.ttf);
     font-weight: 700;
+}
+@font-face {
+    font-family: "gilroy";
+    src: url(../fonts/Gilroy-Black.ttf);
+    font-weight: 900;
 }
