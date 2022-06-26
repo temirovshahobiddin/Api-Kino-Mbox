@@ -32,6 +32,7 @@
 
 body {
     font-family: var(--thin-font);
+    background: #F5F5F5;
 }
 
 ul {
@@ -303,6 +304,7 @@ header {
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
     position: relative;
+
 }
 
 .header-slide.active {
@@ -354,43 +356,7 @@ header {
     }
 }
 
-/* @-webkit-keyframes aboutFlexSlide {
-    0% {
-        -webkit-box-flex: 1;
-        flex-grow: 1;
-    }
 
-    50% {
-        -webkit-box-flex: 3;
-        flex-grow: 3;
-    }
-
-    100% {
-        -webkit-box-flex: 1;
-        flex-grow: 1;
-    }
-}
-
-@keyframes aboutFlexSlide {
-    0% {
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-    }
-
-    50% {
-        -webkit-box-flex: 3;
-        -ms-flex-positive: 3;
-        flex-grow: 3;
-    }
-
-    100% {
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-    }
-}
- */
 @media screen and (min-width: 768px) {
     .header-title-home {
         -webkit-transform: rotate(-90deg);
@@ -492,6 +458,7 @@ header {
     background-attachment: fixed;
     display: flex;
     justify-content: end;
+
 }
 
 
@@ -1147,14 +1114,27 @@ header {
 /* experience end */
 
 /*opinion start  */
+.opinion__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 39px;
+    margin-bottom: 104px;
+}
+
 .opinion__left {
     display: flex;
     flex-direction: column;
+    align-items: start;
+    max-width: 838px;
+    width: 100%;
+
 }
 
 .opinion__left-introduce {
     max-width: 433px;
     width: 100%;
+
 }
 
 .opinion__left-title {
@@ -1183,6 +1163,7 @@ header {
     padding: 12px 0 14px 0;
 }
 
+
 .opinion__scientists {
     display: flex;
     align-items: end;
@@ -1207,4 +1188,120 @@ header {
     max-width: 326px;
     width: 100%;
     object-fit: cover;
+    box-shadow: inset 19px -16px 64px rgba(0, 0, 0, 0.5), inset -19px 16px 64px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(10px 14px 140px rgba(0, 0, 0, 0.2))
 }
+
+.opinion__slide {
+    position: relative;
+    padding: 40px 0 0 30px;
+    backdrop-filter: blur(20px);
+}
+
+
+.opinion__right-txt {
+    font-family: var(--medium-font);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    letter-spacing: 0.7px;
+    color: #000000;
+    max-width: 450px;
+    width: 100%;
+}
+
+
+.swiper__txt {
+    max-width: 446px;
+    width: 100%;
+    margin-bottom: 19px;
+}
+
+.opinion__slide::after {
+    position: absolute;
+    content: url(../img/quotes/qoute.png);
+    top: 3px;
+    left: 1px;
+
+}
+
+.opinion__slide::before {
+    position: absolute;
+    content: url(../img/quotes/qoute\ \(1\).png );
+    bottom: 126px;
+    right: 12px;
+
+}
+
+.swiper {
+    margin: 100px auto;
+    width: 517px;
+    height: 555px;
+
+}
+
+.opinion__slide-btn {
+    font-family: var(--medium-font);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #1147AB;
+    margin-bottom: 47px;
+}
+
+.opinion__next {
+    background: #fff;
+    width: 45px;
+    height: 45px;
+}
+
+.swiper__controls {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    box-shadow: 17px 15px 44px rgba(0, 0, 0, 0.33);
+    column-gap: 30px;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    right: -88px;
+    left: -177px;
+    width: 45px;
+    height: 45px;
+    top: -30px;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: 10px;
+    right: auto;
+    top: -30px;
+}
+.opinion__control:nth-of-type(1){
+    margin-left: 240px;
+}
+.opinion__control{
+    width: 40px;
+    height: 40px;
+    padding: 18px 16px;
+    font-size: none;
+    border-radius: 50%;
+    background: #fff;
+
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: 18px;
+    text-transform: none!important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    color: #000;
+    
+}
+/* opinion end */
+

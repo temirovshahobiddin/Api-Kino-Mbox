@@ -7,7 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For oks</title>
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/swiper.css" />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
+
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="img/logoes/oks.svg" type="image/x-icon">
@@ -71,37 +75,20 @@
                 <img src="img/header/2.jpg" alt="" class="header__bg">
                 <div class="header-title header__title-about"><span> Hududiy</span>
                     kengash</div>
-                <!--   <div class="header-about">
-                    <p>Click here to navigate to the About section of the website</p>
-                </div> -->
+
             </div>
             <div class="header-slide work">
                 <img src="img/header/3.jpg" alt="" class="header__bg">
 
                 <div class="header-title header__title-work"><span>Respublika</span>
                     kengashi</div>
-                <!--   <div class="header-about">
-                    <p>Listing relevant snippets of work:</p>
-                    <ul>
-                        <li>First piece of work</li>
-                        <li>Second piece of work</li>
-                        <li>Third piece of work</li>
-                    </ul>
-                </div> -->
+
             </div>
             <div class="header-slide contact">
                 <img src="img/header/4.jpg" alt="" class="header__bg">
                 <div class="header-title header__title-contact"><span>Umumiy</span>
                     kengash</div>
-                <!--     <div class="header-about">
-                    <p>Use the contact form below</p>
-                    <form class="contact-form">
-                        <p>Email <input type="text" name="email"></p>
-                        <p>Comment <textarea type="text" name="comment" row="5"></textarea></p>
-                        <p><input type="submit" name="email" value="Send Message"></p>
-                    </form>
 
-                </div> -->
             </div>
         </div>
     </header>
@@ -221,7 +208,7 @@
             <div class="container">
                 <div class="experience__top">
                     <h3 class="experience__title main__title">Malaka oshirish</h3>
-                    <a href="" class="experience__btn btn">Barchasi <i class="fal fa-long-arrow-right"></i></a>
+                    <a href="#!" class="experience__btn btn">Barchasi <i class="fal fa-long-arrow-right"></i></a>
                 </div>
                 <div class="experience__content">
                     <div class="experience__blocksystem ">
@@ -272,7 +259,8 @@
                         <div class="opinion__left-introduce">
                             <h3 class="opinion__left-title main__title">Olimlar fikrlari</h3>
                             <div class="opinion__left-line"></div>
-                            <a href="" class="opinion__left-btn btn">Barchasi <i class="fal fa-long-arrow-right"></i></a>
+                            <a href="#!" class="opinion__left-btn btn">Barchasi <i
+                                    class="fal fa-long-arrow-right"></i></a>
                         </div>
                         <div class="opinion__scientists">
                             <img src="img/masters/Rectangle 275.png" alt="" class="opinion__scientists-img first-img">
@@ -280,17 +268,44 @@
                             <img src="img/masters/Без имени-11.png" alt="" class="opinion__scientists-img third-img">
                         </div>
                     </div>
-                    <div class="opinion__right">
-                        
+                    <div class="swiper carousel" >
+                        <div class="swiper-wrapper my__swiper">
+                            <div class="swiper-slide opinion__slide">
+                                <p class="swiper__txt opinion__right-txt">
+                                    Men ushbu tadbirda ishtirok etayotganimdan juda ham mamnunman. Prezident
+                                    Murojaatnomasi juda ham mazmunli va ahamiyatli hujjatdir. Shaxsan men uni shu yil va
+                                    yaqin 5 yilga mo‘ljallangan "yo‘l xaritasi" deb hisoblayman. Aytishim kerakki,
+                                    so‘nggi 3 yilda O‘zbekiston tashqi siyosat, investitsiyalarni jalb qilish, turizm va
+                                    taʼlimni rivojlantirish kabi sohalarda katta muvaffaqiyatlarga erishdi...
+                                </p>
+                                <a href="#!" class="opinion__slide-btn">Batafsil</a>
+                               
+                            </div>
+                            <div class="swiper-slide opinion__slide">
+                                <p class="swiper__txt opinion__right-txt">
+                                    Men ushbu tadbirda ishtirok etayotganimdan juda ham mamnunman. Prezident
+                                    Murojaatnomasi juda ham mazmunli va ahamiyatli hujjatdir. Shaxsan men uni shu yil va
+                                    yaqin 5 yilga mo‘ljallangan "yo‘l xaritasi" deb hisoblayman. Aytishim kerakki,
+                                    so‘nggi 3 yilda O‘zbekiston tashqi siyosat, investitsiyalarni jalb qilish, turizm va
+                                    taʼlimni rivojlantirish kabi sohalarda katta muvaffaqiyatlarga erishdi...
+                                </p>
+                                <a href="#!" class="opinion__slide-btn">Batafsil</a>
+                               
+                            </div>
+                            <div class="swiper__controls">
+                                <div class="swiper-button-next opinion__control"></div>
+                                <div class="swiper-button-prev opinion__control"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/swiper.js"></script>
+   
 </body>
 
 </html>
