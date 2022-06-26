@@ -23,3 +23,8 @@
     src: url(../fonts/Gilroy-Black.ttf);
     font-weight: 900;
 }
+@font-face {
+    font-family: "gilroy m";
+    src: url(../fonts/Gilroy-Medium.ttf);
+    font-weight: 500;
+}

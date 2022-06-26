@@ -37,3 +37,20 @@ const swiper = new Swiper(".carousel", {
 		prevEl: '.swiper-button-prev',
 	},
 });
+
+var book = new Swiper(".book", {
+	direction: "vertical",
+	slidesPerView: "auto",
+	freeMode: true,
+	scrollbar: {
+	  el: ".swiper-scrollbar",
+	},
+	mousewheel: true,
+  });
+  
+  let accordionBody = document.querySelectorAll(".accordion-collapse")
+  
+  accordionBody.addEventListener("click", function () {
+	
+  })
+ 
