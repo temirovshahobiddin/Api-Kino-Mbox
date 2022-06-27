@@ -20,6 +20,19 @@ for (let i = 0; i < headerSlide.length; i++) {
 }
 
 
+let headerMenu = document.querySelectorAll(".header__brand")
+let playlist = document.querySelector(".header__playlist")
+let navBar = document.querySelector(".header__navbar")
+for (let i = 0; i < headerMenu.length; i++) {
+	headerMenu[i].addEventListener("click", function(){
+		this.classList.toggle("active")
+		playlist.classList.toggle("active")
+		navBar.classList.toggle("active")
+	})
+	
+}
+
+
 const swiper = new Swiper(".carousel", {
 	grabCursor: true,
 	effect: "creative",
