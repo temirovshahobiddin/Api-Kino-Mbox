@@ -251,5 +251,87 @@ popularTitle.innerHTML = `${kino.curMonth} ${kino.curYear}`
 kino.getTopMovies().then(res => {
     let rand = randMovies(res.films.length)
     popularPoster.src = res.films[rand].posterUrlPreview
-    
+
 })
+
+
+//comins soon
+
+// render solo 
+
+async function renderSolo(id) {
+    mainBlock.innerHTML = "";
+    pagination.innerHTML = "";
+    anime.classList.add("active");
+    (async function () {
+        const [reviews, frames, solo] = await Promise.all([
+            kino.getReviews(id),
+            kino.getFrames(id),
+            kino.getSoloFilm(id)
+        ])
+        return {
+            reviews,
+            frames,
+            solo
+        }
+    }())
+    .then(res => {
+            console.log(res);
+            let solo = res.solo.data
+            let genres = solo.genres.reduce((acc, item) => acc + `${item.genre} `, '')
+            // console.log(genres);
+            let countries = solo.countries.reduce((acc, item) => acc + `${item.country} `, '')
+            let facts = ''
+            let frames = ''
+            let reviews = ''
+            if (solo.facts.length) {
+                solo.facts.forEach((item, i) => {
+                    if (i < 10) facts += `<li class "solo__facts">${i + 1}: ${item}</li>`
+                });
+            } else(facts += `<li class "solo__facts">Facts not a found</li>`)
+            if (res.frames.items.length) {
+                res.frames.items.forEach((item, i) => {
+                    if (i < 10) frames += `<img src="${item.previewUrl}" alt="" loading="lazy">`
+                })
+            } else {
+                frames += 'Images not a found'
+            }
+            if (res.reviews.items.length) {
+                res.reviews.items.forEach((item, i) => {
+                    if (i < 10) {
+                        reviews += `
+                    <div class="review__item">
+                        <span>${item.author}</span>
+                        <p class="review__descr">${item.description}</p>
+                    </div>
+                    `
+                    } else {
+                        reviews += "Reviews is not found"
+                    }
+                })
+            }
+            let div =
+                `
+                <ul class="solo__facts">
+                    <h3 class="trend__tv-title">Интересные факты</h3>
+                    ${facts}
+                </ul>
+                <h3 class="trend__tv-title solo__title2">Кадры из фильма</h3>
+                <div class="solo__images">${frames}</div>
+                <div class="solo__reviews">
+                   <h3 class="trend__tv-title solo__title2">Отзыви</h3>
+                   ${reviews}
+                </div>
+                `
+            mainSolo.innerHTML = div
+        })
+        .catch(e => {
+            console.log(e);
+            anime.classList.remove("active")
+        })
+
+}
+
+renderSolo(5273)
+
+// render solo
