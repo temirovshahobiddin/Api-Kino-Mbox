@@ -62,7 +62,7 @@ const searchLink = document.querySelector(".search__link .icon-reg"),
     mainSolo = document.querySelector(".main__solo"),
     moviesLink = document.querySelectorAll(".movies__link"),
     formMain = document.querySelector(".form__main"),
-    formInput = document.querySelector(".input"),
+    formInput = document.querySelector(".header__input"),
     anime = document.querySelector(".anime"),
     pagination = document.querySelector(".pagination"),
     headerBtn = document.querySelector(".header__btn"),
@@ -134,6 +134,22 @@ function randMovies(num) {
     return Math.floor(Math.random() * num + 1)
 }
 
+function openMainClock(e) {
+    e.preventDefault()
+    mainContent.classList.add("active")
+    body.classList.add("active")
+}
+
+searchLink.addEventListener("click", openMainClock)
+moviesLink.forEach(item => item.addEventListener("click", openMainClock))
+mainClose.forEach(item => {
+    item.addEventListener("click", function (e) {
+        e.preventDefault()
+        mainContent.classList.remove("active")
+        body.classList.remove("active")
+    })
+})
+
 //render Tremd Movie
 
 function renderTrendMovies(elem = [], fn = [], films = [], params = []) {
@@ -186,6 +202,14 @@ function renderTrendMovies(elem = [], fn = [], films = [], params = []) {
                         }
                     })
                 })
+                let movieItem = document.querySelectorAll(".movie__item")
+                movieItem.forEach(items => {
+                    items.addEventListener("click", function (e) {
+                        let attr = this.getAttribute("data-id")
+                        openMainClock(e)
+                        renderSolo(attr)
+                    })
+                })
             })
             .catch(e => {
                 anime.classList.remove("active")
@@ -223,10 +247,19 @@ function renderHeader(page) {
                     </p>
                     <div class="header__buttons">
                         <a href="${url}" target="_blank" class="header__watch"><span class="icon-solid"></span>watch</a>
-                        <a href="#" class="header__more header__watch movie__item">More information</a>
+                        <a href="#" class="header__more header__watch movie__item" data-id="${info.filmId}">More information</a>
                     </div>
     `
                 anime.classList.remove("active")
+            })
+            .then(() => {
+                let headerWatch = document.querySelector(".header__watch")
+                headerWatch.addEventListener("click", function (e) {
+                    e.preventDefault()
+                    openMainClock(e)
+                    let attr = this.getAttribute("data-id")
+                    renderSolo(attr)
+                })
             })
             .catch(e => {
                 console.error(e);
@@ -276,7 +309,7 @@ async function renderSolo(id) {
         }
     }())
     .then(res => {
-            console.log(res);
+            // console.log(res);
             let solo = res.solo.data
             let genres = solo.genres.reduce((acc, item) => acc + `${item.genre} `, '')
             // console.log(genres);
@@ -310,8 +343,26 @@ async function renderSolo(id) {
                     }
                 })
             }
+            let url = solo.webUrl.split("www.").join("gg")
             let div =
                 `
+                <div class="solo__img">
+                <img src="${solo.posterUrlPreview}" alt="${solo.nameRu || solo.nameEn}">
+                <a href="${url}" class="solo__link header__watch">Watch Free</a>
+                </div>
+                <div class="solo__content">
+                <h3 class="solo__title trend__tv-title">${solo.nameRu || solo.nameEn}</h3>
+                     <ul>
+                         <li class="solo__countries">Страны: ${countries}</li>
+                         <li class="solo__genres">Жанры: ${genres}</li>
+                         <li class="solo__dur">Продолжительность: ${solo.filmLength != null ? solo.filmLength + ":00" : "Отсутствует"}</li>
+                         <li class="solo__year">Год: ${solo.year}</li>
+                         <li class="solo__premiere">Мировая премьера: ${solo.premiereWorld}</li>
+                         <li class="solo__rating">Возрастной рейтинг: ${solo.ratingAgeLimits != null ? solo.ratingAgeLimits : "Отсутствует"}+</li>
+                         <li class="solo__slogan">Слоган: ${solo.slogan != null ? solo.slogan : "Отсутствует"}</li>
+                         <li class="solo__descr header__descr">Описание: ${solo.description != null ? solo.description : "Отсутствует"}</li>
+                    </ul>
+             </div>
                 <ul class="solo__facts">
                     <h3 class="trend__tv-title">Интересные факты</h3>
                     ${facts}
@@ -323,15 +374,60 @@ async function renderSolo(id) {
                    ${reviews}
                 </div>
                 `
+            anime.classList.remove("active")
             mainSolo.innerHTML = div
         })
         .catch(e => {
             console.log(e);
             anime.classList.remove("active")
         })
-
 }
 
-renderSolo(5273)
+// renderSolo(5412)
+
+// search film
+function searchRender(page = 1, keyword = "", fn = "getTopMovies") {
+    mainBlock.innerHTML = "";
+    mainSolo.innerHTML = "";
+    kino[fn](page, keyword).then(data => {
+            if (data.films.length > 0) {
+                data.films.forEach(item => {
+                    let someItem = document.createElement("div")
+                    someItem.classList.add("some__item")
+                    someItem.innerHTML = `
+           <div class="some__img">
+           <img src="${item.posterUrlPreview}" alt="${item.nameRu || item.nameEn}" class="" loading="lazy">
+           <span class="some__rating">${item.rating != null ? item.rating : 0}</span>
+           <h3 class="some__title">${item.nameRu || item.nameEn}</h3>
+           </div>`
+                    someItem.setAttribute("data-id", item.filmId)
+                    mainBlock.append(someItem)
+                })
+            } else {
+                mainBlock.innerHTML = `<p class="undefined">Not a found</p>`
+            }
+        })
+        .then(() => {
+            let someItem = document.querySelectorAll(".some__item")
+            someItem.forEach(item => {
+                item.addEventListener("click", function (e) {
+                    let attr = this.getAttribute("data-id")
+                    renderSolo(attr)
+                })
+            });
+            anime.classList.remove("active")
+        })
+        .catch(e => {
+            console.log(e);
+        })
+}
+
+searchRender()
+
+formMain.addEventListener("submit", function (e) {
+    e.preventDefault();
+    searchRender(1, formInput.value, `getSearch`)
+})
+// search film
 
 // render solo
